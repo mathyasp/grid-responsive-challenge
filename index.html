@@ -31,10 +31,36 @@
       display: grid;
       grid-gap: 15px;
       grid-template-areas: "t t t t"  /* .title first row*/
-                           "m w w w"  /* .monster and .welcome second row */
-                           "p c l g"; /* parents, customize, level-up, and play row 3 */
+                           "p w w w"  /* .population and .welcome second row */
+                           "d c g n"; /* gdp, calling code, gov't, and news */
       grid-template-rows: 100px 200px 200px;
       grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 800px) {
+      .dashboard {
+        grid-template-areas: 
+          "t t t"
+          "p p c"
+          "d d d"
+          "w g g"
+          "n n n";
+        grid-template-rows: 100px 200px 200px 100px 300px;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .dashboard {
+        grid-template-areas: 
+          "t t"
+          "p c"
+          "w g"
+          "d d"
+          "n n";
+        grid-template-rows: 100px 200px 200px 100px 300px;
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     * {
@@ -66,7 +92,7 @@
       color: #000;
     }
     .population { 
-      grid-area: m; 
+      grid-area: p; 
       background-image: url(images/finland-8.jpg);
       background-size: cover;
       display: flex;
@@ -83,7 +109,7 @@
       align-items: flex-end;
     }
     .gdp { 
-      grid-area: p; 
+      grid-area: d; 
       background-image: url(images/finland-3.jpg);
       background-size: cover;
       display: flex;
@@ -100,7 +126,7 @@
       justify-content: flex-start;
     }
     .govt { 
-      grid-area: l; 
+      grid-area: g; 
       background-image: url(images/finland-1.jpg);
       background-size: cover;
       display: flex;
@@ -109,7 +135,7 @@
       position: relative;
     }
     .news { 
-      grid-area: g;
+      grid-area: n;
       background-image: url(images/finland-5.jpg);
       background-size: cover;
       display: flex;
